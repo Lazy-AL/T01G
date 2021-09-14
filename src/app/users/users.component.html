@@ -1,6 +1,7 @@
 <div class="container">
     <div class="border">
-        <button class="btn btn-md btn-outline-primary"><i id='myicon' class="fa fa-user"></i>New user</button>
+        <button class="btn btn-md btn-outline-primary" (click)="open(content)"><i id='myicon' class="fa fa-user"></i>New
+            user</button>
     </div>
     <table class="table table-bordered table-striped">
         <thead>
@@ -14,6 +15,7 @@
         </thead>
         <tbody>
             <tr *ngFor='let users of users'>
+                <td><span>{{users.id}}</span></td>
                 <td><span>{{users.name}}</span></td>
                 <td><span>{{users.username}}</span></td>
                 <td><span>{{users.email}}</span></td>
@@ -33,4 +35,51 @@
             </tr>
         </tbody>
 
-        
+        <ng-template #content let-modal>
+            <div class="modal-header">
+                <h4 class="modal-title" id="modal-basic-title">New User</h4>
+                <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+                    <div class="form-group">
+                        <label for="firstname">Firstname</label>
+                        <div class="input-group">
+                            <input id="firstname" name='firstname' class="form-control" ngModel>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <div class="input-group">
+                            <input id="username" name='username' class="form-control"ngModel>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <div class="input-group">
+                            <input id="email" name='email' class="form-control"ngModel>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">phone</label>
+                        <div class="input-group">
+                            <input id="phone" name='phone' class="form-control"ngModel>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="company">Company</label>
+                        <div class="input-group">
+                            <input id="company" name='company' class="form-control"ngModel>
+                        </div>
+                    </div>
+                    <div class="border text-center">
+                        <button data-dismiss="modal" class="btn btn-info">Submit</button>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+            </div>
+        </ng-template>
