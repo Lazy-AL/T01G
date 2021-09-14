@@ -1,1 +1,36 @@
-<h2>users</h2>
+<div class="container">
+    <div class="border">
+        <button class="btn btn-md btn-outline-primary"><i id='myicon' class="fa fa-user"></i>New user</button>
+    </div>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>name</th>
+                <th>username</th>
+                <th>mail</th>
+                <th>phone</th>
+                <th>company</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor='let users of users'>
+                <td><span>{{users.name}}</span></td>
+                <td><span>{{users.username}}</span></td>
+                <td><span>{{users.email}}</span></td>
+                <td><span>{{users.phone}}</span></td>
+                <td><span>{{users.company.name}}</span></td>
+                <td>
+                    <button class="btn btn-sm btn-info">
+                        <i class="fa fa-search"></i>Details
+                    </button>
+                    <button class="btn btn-sm btn-warning">
+                        <i class="fa fa-edit"></i>Edit
+                    </button>
+                    <button class="btn btn-sm btn-danger">
+                        <i class="fa fa-remove"></i>Delete
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+
+        
