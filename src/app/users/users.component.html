@@ -22,7 +22,8 @@
                 <td><span>{{users.phone}}</span></td>
                 <td><span>{{users.company.name}}</span></td>
                 <td>
-                    <button class="btn btn-sm btn-info">
+                    <button class="btn btn-sm btn-info" (click)="openDetails(contentDetails, users)"
+                    >
                         <i class="fa fa-search"></i>Details
                     </button>
                     <button class="btn btn-sm btn-warning">
@@ -53,25 +54,25 @@
                     <div class="form-group">
                         <label for="username">Username</label>
                         <div class="input-group">
-                            <input id="username" name='username' class="form-control"ngModel>
+                            <input id="username" name='username' class="form-control" ngModel>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
                         <div class="input-group">
-                            <input id="email" name='email' class="form-control"ngModel>
+                            <input id="email" name='email' class="form-control" ngModel>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="phone">phone</label>
                         <div class="input-group">
-                            <input id="phone" name='phone' class="form-control"ngModel>
+                            <input id="phone" name='phone' class="form-control" ngModel>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="company">Company</label>
                         <div class="input-group">
-                            <input id="company" name='company' class="form-control"ngModel>
+                            <input id="company" name='company' class="form-control" ngModel>
                         </div>
                     </div>
                     <div class="border text-center">
@@ -81,5 +82,51 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+            </div>
+        </ng-template>
+
+        <ng-template #contentDetails let-modal>
+            <div class="modal-header">
+                <h4 class="modal-title" id="modal-basic-title">Details</h4>
+                <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                      <label for="name">name</label>
+                      <div class="input-group">
+                        <input id="fname" class="form-control" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="username">username</label>
+                      <div class="input-group">
+                        <input id="lname" class="form-control" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="email">email</label>
+                      <div class="input-group">
+                        <input id="dept" class="form-control" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="phone">phone</label>
+                      <div class="input-group">
+                        <input id="email2" class="form-control" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="company"> company</label>
+                      <div class="input-group">
+                        <input id="cntry" class="form-control" readonly>
+                      </div>
+                    </div>
+                  </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">close</button>
             </div>
         </ng-template>
