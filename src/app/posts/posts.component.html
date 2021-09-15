@@ -1,1 +1,21 @@
-<h2>post</h2>
+<div class="container">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>userid</th>
+                <th>id</th>
+                <th>title</th>
+                <th>body</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor='let posts of posts'>
+                <td><span>{{posts.userId}}</span></td>
+                <td><span>{{posts.id}}</span></td>
+                <td><span>{{posts.title}}</span></td>
+                <td><span>{{posts.body}}</span></td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

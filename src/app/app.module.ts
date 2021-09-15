@@ -21,7 +21,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     HomeComponent,
-    UserComponent
+    UserComponent,
+    PostsComponent
   ],
   imports: [
     BrowserModule,
